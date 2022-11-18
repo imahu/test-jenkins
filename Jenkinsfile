@@ -1,5 +1,5 @@
 node {
-    def WORKSPACE = "/var/lib/jenkins_home/workspace/Test"
+    def WORKSPACE = "/var/jenkins_home/workspace/Test"
     def dockerImageTag = "Test${env.BUILD_NUMBER}"
 
     try{
