@@ -10,4 +10,8 @@ public class TestController {
     public String getTest(){
         return "success!!!";
     }
+    @RequestMapping("/")
+    public String getTest2(){
+        return "hello bro !!!";
+    }
 }
