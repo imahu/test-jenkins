@@ -18,7 +18,7 @@ node {
           stage('Deploy docker'){
                   echo "Docker Image Tag Name: ${dockerImageTag}"
                   sh "docker stop test || true && docker rm test || true"
-                  sh "docker run --name test -d -p 8081:8081 test:${env.BUILD_NUMBER}"
+                  sh "docker run --name test -d -p 3277:3277 test:${env.BUILD_NUMBER}"
           }
     }catch(e){
 //         currentBuild.result = "FAILED"
