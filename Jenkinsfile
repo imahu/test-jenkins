@@ -4,13 +4,13 @@ node {
 
     try{
 //          notifyBuild('STARTED')
-//          stage('Clone Repo') {
-//             // for display purposes
-//             // Get some code from a GitHub repository
-//             git url: 'https://gitlab.com/gpranataAsyst/springboot-demodeploy.git',
-//                 credentialsId: 'springdeploy-user',
-//                 branch: 'main'
-//          }
+         stage('Clone Repo') {
+            // for display purposes
+            // Get some code from a GitHub repository
+            git url: 'https://github.com/imahu/test-jenkins.git',
+                // credentialsId: 'springdeploy-user',
+                branch: 'master'
+         }
           stage('Build docker') {
                  dockerImage = docker.build("test:${env.BUILD_NUMBER}")
           }
