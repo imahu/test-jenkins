@@ -13,12 +13,14 @@ node {
          }
           stage('Build docker') {
                  dockerImage = docker.build("test:${env.BUILD_NUMBER}")
+                 sh "docker rmi test || true "
           }
 
           stage('Deploy docker'){
                   echo "Docker Image Tag Name: ${dockerImageTag}"
                   sh "docker stop test || true && docker rm test || true"
                   sh "docker run --name test -d -p 5000:5000 test:${env.BUILD_NUMBER}"
+                  echo "images ${dockerImage}"
           }
     }catch(e){
 //         currentBuild.result = "FAILED"
