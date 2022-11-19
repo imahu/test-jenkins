@@ -10,8 +10,8 @@ public class TestController {
     public String getTest(){
         return "success!!!";
     }
-      @RequestMapping("/")
-    public String getTest(){
+    @RequestMapping("/")
+    public String getTes22t(){
         return "hehe boiz u got this !!!";
     }
 }
