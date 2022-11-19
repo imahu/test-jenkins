@@ -1,6 +1,6 @@
 node {
-    def WORKSPACE = "/var/jenkins_home/workspace/Test"
-    def dockerImageTag = "Test${env.BUILD_NUMBER}"
+    def WORKSPACE = "/var/jenkins_home/workspace/test"
+    def dockerImageTag = "test${env.BUILD_NUMBER}"
 
     try{
 //          notifyBuild('STARTED')
@@ -12,13 +12,13 @@ node {
 //                 branch: 'main'
 //          }
           stage('Build docker') {
-                 dockerImage = docker.build("Test:${env.BUILD_NUMBER}")
+                 dockerImage = docker.build("test:${env.BUILD_NUMBER}")
           }
 
           stage('Deploy docker'){
                   echo "Docker Image Tag Name: ${dockerImageTag}"
-                  sh "docker stop Test || true && docker rm Test || true"
-                  sh "docker run --name Test -d -p 8081:8081 Test:${env.BUILD_NUMBER}"
+                  sh "docker stop test || true && docker rm test || true"
+                  sh "docker run --name test -d -p 8081:8081 test:${env.BUILD_NUMBER}"
           }
     }catch(e){
 //         currentBuild.result = "FAILED"
